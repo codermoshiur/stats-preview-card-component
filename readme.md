@@ -10,8 +10,8 @@
 
 ### Links
 
-- Live Site URL: []()
-- Solution URL: []()
+- Live Site URL: [https://codermoshiur.github.io/stats-preview-card-component/](https://codermoshiur.github.io/stats-preview-card-component/)
+- Solution URL: [https://www.frontendmentor.io/solutions/stats-preview-card-component-using-sass-WBuq7k9dN8](https://www.frontendmentor.io/solutions/stats-preview-card-component-using-sass-WBuq7k9dN8)
 
 ## My process
 

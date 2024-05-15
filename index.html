@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stats preview card component</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/images/favicon-32x32.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
@@ -40,11 +45,17 @@
               </div>
             </div>
             <div class="stats-preview__item stats-preview__item--img">
-              <img
-                src="./assets/images/image-header-mobile.jpg"
-                alt="Get insights that help your business grow"
-                class="stats-preview__top-img"
-              />
+              <picture class="stats-preview__top-pic">
+                <source
+                  media="(min-width: 64.0625rem)"
+                  srcset="./assets/images/image-header-desktop.jpg"
+                />
+                <img
+                  src="./assets/images/image-header-mobile.jpg"
+                  alt="Get insights that help your business grow"
+                  class="stats-preview__top-img"
+                />
+              </picture>
             </div>
           </div>
         </div>

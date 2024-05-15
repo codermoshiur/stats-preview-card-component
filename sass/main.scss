@@ -96,7 +96,7 @@ body {
   &__grid {
     @include grid(null);
     @include laptop {
-      grid-template-columns: 35.625rem 1fr;
+      grid-template-columns: repeat(2, 1fr);
       align-items: center;
     }
   }
@@ -119,6 +119,9 @@ body {
     font-family: $font-inter-bold;
     font-size: 1.75rem;
     line-height: 1.2;
+    @include laptop {
+      font-size: 2.25rem;
+    }
   }
   &__title-highlighted-text {
     color: $clr-teldrassil-purple;
@@ -150,34 +153,24 @@ body {
   }
   &__item--img {
     order: 1;
-    position: relative;
-    height: 100%;
     @include laptop {
+      height: 100%;
       order: 2;
     }
-    &::before {
-      content: "";
-      display: block;
-      width: 100%;
+  }
+  &__top-pic {
+    background-color: $clr-teldrassil-purple;
+    @include laptop {
       height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: darken($clr-teldrassil-purple, 20%);
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
-      opacity: 0.75;
-      @include laptop {
-        border-top-left-radius: 0;
-        border-bottom-right-radius: 0.5rem;
-      }
     }
   }
   &__top-img {
-    height: 100%;
+    mix-blend-mode: multiply;
+    opacity: 0.85;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
     @include laptop {
+      height: 100%;
       border-top-left-radius: 0;
       border-bottom-right-radius: 0.5rem;
     }
