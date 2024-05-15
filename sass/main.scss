@@ -1,0 +1,185 @@
+//reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+//fonts
+@font-face {
+  src: url(../assets/fonts/Inter-Regular.ttf);
+  font-family: "Inter-Regular";
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  src: url(../assets/fonts/Inter-Bold.ttf);
+  font-family: "Inter-Bold";
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  src: url(../assets/fonts/LexendDeca-Regular.ttf);
+  font-family: "LexendDeca-Regular";
+  font-weight: 400;
+  font-display: swap;
+}
+//variables
+$font-inter-regular: "Inter-Regular", sans-serif;
+$font-inter-bold: "Inter-Bold", sans-serif;
+$font-lexendDeca-regular: "LexendDeca-Regular", sans-serif;
+$clr-white: #ffffff;
+$clr-teldrassil-purple: #ab5cdb;
+$clr-tristesse: #0a0c1c;
+$clr-lost-in-sadness: #1b1937;
+//mixins
+@mixin grid($gap) {
+  display: grid;
+  grid-template-columns: auto;
+  gap: $gap;
+}
+@mixin laptop {
+  @media (min-width: 64.0625rem) {
+    @content;
+  }
+}
+//global styles
+body {
+  font-family: $font-inter-regular;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: $clr-white;
+}
+.container {
+  width: min(100%, 20.4375rem);
+  margin-inline: auto;
+  @include laptop() {
+    width: min(100%, 69.375rem);
+  }
+}
+//section stats-preview
+.stats-preview {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: $clr-tristesse;
+  padding: 5.5rem 1.5rem;
+  &__grid {
+    @include grid(null);
+    @include laptop {
+      grid-template-columns: 35.625rem 1fr;
+      align-items: center;
+    }
+  }
+  &__item--content {
+    order: 2;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    background-color: $clr-lost-in-sadness;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    @include laptop {
+      order: 1;
+      text-align: left;
+      border-top-left-radius: 0.5rem;
+      border-bottom-right-radius: 0;
+      padding: 4.5rem;
+    }
+  }
+  &__title {
+    font-family: $font-inter-bold;
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  &__title-highlighted-text {
+    color: $clr-teldrassil-purple;
+  }
+  &__copy {
+    margin-top: 1rem;
+    @include laptop {
+      max-width: 23.4375rem;
+    }
+  }
+  &__stats-details {
+    margin-top: 2.5rem;
+    @include grid(1.5rem);
+    @include laptop {
+      grid-template-columns: repeat(3, max-content);
+      gap: 3.9375rem;
+      margin-top: 4.5rem;
+    }
+  }
+  &__stats-count {
+    font-size: 1.5rem;
+    font-family: $font-inter-bold;
+  }
+  &__stats-title {
+    font-size: 0.75rem;
+    font-family: $font-lexendDeca-regular;
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+  }
+  &__item--img {
+    order: 1;
+    position: relative;
+    height: 100%;
+    @include laptop {
+      order: 2;
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: darken($clr-teldrassil-purple, 20%);
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+      opacity: 0.75;
+      @include laptop {
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 0.5rem;
+      }
+    }
+  }
+  &__top-img {
+    height: 100%;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    @include laptop {
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0.5rem;
+    }
+  }
+}
